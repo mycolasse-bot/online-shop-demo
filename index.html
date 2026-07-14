@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Online Shop - Fashion Wanita</title>
+    <meta
+      name="description"
+      content="Toko online fashion wanita bergaya marketplace dengan produk, cart, checkout, ekspedisi, pembayaran, dan admin produk."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="home-page">
+    <header class="market-header">
+      <div class="market-top">
+        <div class="market-top-left">
+          <a class="top-admin-link admin-only-top" href="seller-log/index.html" aria-label="Buka Seller Center untuk pengelolaan produk" title="Pengelolaan produk"><em>Seller Center</em></a>
+        </div>
+
+        <div class="market-top-right">
+          <div class="social-follow" aria-label="Ikuti kami di media sosial">
+            <span class="follow-label">Ikuti</span>
+            <a href="#" aria-label="TikTok" title="TikTok">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4v9.2a4.7 4.7 0 1 1-4-4.5"/><path d="M15 4c.8 2.7 2.4 4.2 5 4.6"/></svg>
+              <span>TikTok</span>
+            </a>
+            <a href="#" aria-label="Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.5" cy="6.5" r=".8" class="icon-fill"/></svg>
+              <span>Instagram</span>
+            </a>
+            <a href="#" aria-label="Facebook" title="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 20v-7h2.5l.5-3H14V8.5c0-.9.3-1.5 1.7-1.5H17V4.3c-.6-.1-1.4-.3-2.5-.3-2.5 0-4.2 1.5-4.2 4.3V10H8v3h2.3v7"/></svg>
+              <span>Facebook</span>
+            </a>
+            <a href="#" aria-label="YouTube" title="YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9 5 3-5 3z"/></svg>
+              <span>YouTube</span>
+            </a>
+          </div>
+          <button class="top-utility-link" type="button" aria-label="Download aplikasi">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11"/><path d="m8 10 4 4 4-4"/><path d="M5 20h14"/></svg>
+            <span>Download</span>
+          </button>
+          <button class="top-utility-link" type="button" aria-label="Bantuan">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 0 1 4.6.9c0 1.7-2.4 2-2.4 3.7"/><path d="M12 17h.01"/></svg>
+            <span>Bantuan</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="market-main">
+        <a class="market-brand" href="index.html" aria-label="Online Shop">
+          <span class="bag-mark" aria-hidden="true"><span></span></span>
+          <span><b>Online</b><em>Shop</em></span>
+        </a>
+
+        <form class="search-box" id="searchForm">
+          <input id="searchInput" type="search" placeholder="Cari dress satin, blouse, tas, sepatu..." />
+          <button class="search-submit" type="submit" aria-label="Cari">
+            <svg class="search-icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="6.5"></circle>
+              <path d="m16 16 4 4"></path>
+            </svg>
+          </button>
+        </form>
+
+        <button class="cart-link cart-with-icon" id="cartOpen" type="button" aria-label="Buka keranjang">
+          <svg class="nav-icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 4h2l1.7 8.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L20 7H6"></path>
+            <circle cx="9" cy="19" r="1.2"></circle>
+            <circle cx="17" cy="19" r="1.2"></circle>
+          </svg>
+          <span class="nav-label">Keranjang</span><span class="count-badge" id="cartCount">0</span>
+        </button>
+        <button class="cart-link cart-with-icon" type="button" aria-label="Notifikasi">
+          <svg class="nav-icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+            <path d="M10 21h4"></path>
+          </svg>
+          <span class="nav-label">Notifikasi</span><span class="count-badge">2</span>
+        </button>
+        <button class="cart-link account-link cart-with-icon" id="buyerLoginOpen" type="button" aria-label="Akun saya">
+          <svg class="nav-icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="8" r="3.5"></circle>
+            <path d="M5 20c.8-4 3.2-6 7-6s6.2 2 7 6"></path>
+          </svg>
+          <span class="nav-label">Akun Saya</span>
+        </button>
+      </div>
+
+      <nav class="quick-links" aria-label="Pencarian cepat">
+        <button class="category-menu" type="button" aria-expanded="false"><span class="hamburger">☰</span> Semua Kategori</button>
+        <button type="button" data-search="elektronik">Elektronik</button>
+        <button type="button" data-search="fashion">Fashion</button>
+        <button type="button" data-search="kecantikan">Kecantikan</button>
+        <button type="button" data-search="rumah tangga">Rumah Tangga</button>
+        <button type="button" data-search="olahraga">Olahraga</button>
+        <button type="button" data-search="otomotif">Otomotif</button>
+        <button type="button" data-search="lainnya">Lainnya</button>
+        <button type="button" data-search="flash sale">Flash Sale</button>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      <section class="promo-layout">
+        <a class="main-promo" href="#produk">
+          <div class="promo-copy">
+            <p id="promoEyebrow">🔥 PROMO TERBATAS</p>
+            <h1 id="promoTitle">Headphone Wireless Premium</h1>
+            <span id="promoDescription">Dress, blouse, outer, tas, rok, dan heels pilihan dengan promo harian.</span>
+            <strong id="promoBadge">Rp199.000 <del>Rp299.000</del></strong>
+            <span class="promo-cta">Belanja Sekarang</span>
+            
+          </div>
+          <div class="promo-products" aria-hidden="true">
+            <img class="promo-product main" id="promoMainImage" src="assets/sample-product-real.jpg" alt="" />
+            <img class="promo-product small top" src="assets/photos/bag-1.jpg" alt="" />
+            <img class="promo-product small bottom" src="assets/photos/heels-1.jpg" alt="" />
+          </div>
+        </a>
+        <div class="side-promos flash-card">
+          <div class="flash-head"><strong>🔥 Flash Sale</strong><a href="#flashsale">Lihat Semua</a></div>
+          <div class="flash-timer"><b>02</b><span>:</span><b>35</b><span>:</span><b>47</b></div>
+          <div class="flash-list">
+            <a href="product.html?id=earbuds"><img src="assets/photos/electronics-2.png" alt="TWS Bluetooth Earbuds" /><span><b>TWS Bluetooth Earbuds</b><strong>Rp89.000</strong><del>Rp129.000</del></span><i>-31%</i></a>
+            <a href="product.html?id=serum"><img src="assets/photos/beauty-2.png" alt="LumiGlow Niacinamide Serum" /><span><b>LumiGlow Niacinamide Serum</b><strong>Rp105.000</strong><del>Rp119.000</del></span><i>-12%</i></a>
+            <a href="product.html?id=home-lamp"><img src="assets/photos/home-2.png" alt="Luma Minimal Table Lamp" /><span><b>Luma Minimal Table Lamp</b><strong>Rp109.000</strong><del>Rp129.000</del></span><i>-15%</i></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="shortcut-row" aria-label="Menu promo">
+        <a href="#produk">🛡️ Garansi 100% Original</a>
+        <a href="#flashsale">🚚 Gratis Ongkir</a>
+        <a href="#produk">↩️ 14 Hari Pengembalian</a>
+        <a href="#produk">🎧 Layanan 24/7</a>
+      </section>
+
+      <section class="panel-section" aria-labelledby="categoryTitle">
+        <div class="section-title-row">
+          <h2 id="categoryTitle">Kategori Populer</h2>
+        </div>
+        <div class="category-grid" id="categoryGrid"></div>
+      </section>
+
+      <section class="panel-section" id="flashsale" aria-labelledby="flashTitle">
+        <div class="section-title-row">
+          <h2 id="flashTitle">Flash Sale</h2>
+          <span id="flashClock">00:00:00</span>
+        </div>
+        <div class="flash-strip" id="flashStrip"></div>
+      </section>
+
+      <section class="panel-section" id="produk" aria-labelledby="productTitle">
+        <div class="section-title-row products-head">
+          <h2 id="productTitle">Rekomendasi Fashion Wanita</h2>
+          <div class="category-filter" id="categoryFilters"></div>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+      </section>
+    </main>
+
+    <aside class="drawer" id="cartDrawer" aria-hidden="true">
+      <div class="drawer-panel">
+        <div class="drawer-head">
+          <h2>Keranjang</h2>
+          <button class="close-button" id="cartClose" type="button" aria-label="Tutup keranjang">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-summary">
+          <span>Total Produk</span>
+          <strong id="cartSubtotal">Rp0</strong>
+        </div>
+        <a class="primary-button full" href="product.html?id=dress" id="checkoutJump">Checkout di Halaman Produk</a>
+      </div>
+    </aside>
+
+    <aside class="drawer" id="buyerLoginDrawer" aria-hidden="true">
+      <div class="drawer-panel login-panel">
+        <div class="drawer-head">
+          <h2>Akun Pembeli</h2>
+          <button class="close-button" id="buyerLoginClose" type="button" aria-label="Tutup login">&times;</button>
+        </div>
+        <div class="buyer-login-copy">
+          <strong>Masuk lebih cepat dengan Gmail</strong>
+          <span>Simpan alamat, pantau pesanan, dan checkout lebih praktis.</span>
+        </div>
+        <form id="buyerLoginForm" class="login-box">
+          <label>Email Gmail<input type="email" name="email" placeholder="nama@gmail.com" required /></label>
+          <button class="primary-button full" type="submit">Lanjutkan dengan Gmail</button>
+        </form>
+        <button class="secondary-button full seller-login-entry" id="adminLoginOpen" type="button">Login Seller / Admin</button>
+        <div id="buyerLoginResult" class="payment-result" hidden></div>
+      </div>
+    </aside>
+
+    <aside class="drawer admin-drawer" id="adminDrawer" aria-hidden="true">
+      <div class="drawer-panel admin-panel">
+        <div class="drawer-head">
+          <h2>Admin Toko</h2>
+          <button class="close-button" id="adminClose" type="button" aria-label="Tutup admin">&times;</button>
+        </div>
+
+        <form class="login-box" id="loginForm">
+          <p>Login admin demo</p>
+          <label>
+            Username
+            <input name="username" value="admin" required />
+          </label>
+          <label>
+            Password
+            <input name="password" type="password" value="admin123" required />
+          </label>
+          <button class="primary-button" type="submit">Login</button>
+          <small>Username: admin, Password: admin123</small>
+        </form>
+
+        <div class="admin-content" id="adminContent" hidden>
+          <nav class="admin-sidebar" aria-label="Menu admin">
+            <button class="active" type="button" data-admin-tab="products">Produk</button>
+            <button type="button" data-admin-tab="discount">Discount</button>
+            <button type="button" data-admin-tab="banner">Banner Promosi</button>
+            <button type="button" data-admin-tab="store">Pengaturan Toko</button>
+            <button type="button" data-admin-tab="shipping">Harga Ongkir</button>
+            <button type="button" data-admin-tab="payments">Pembayaran</button>
+            <button type="button" data-admin-tab="orders">Notif Pembeli</button>
+            <button class="secondary-button" id="logoutAdmin" type="button">Logout</button>
+          </nav>
+
+          <div class="admin-main">
+            <section class="admin-section active" data-admin-section="products">
+              <div class="admin-toolbar">
+                <h3>Kelola Produk</h3>
+              </div>
+
+              <form class="product-form" id="productForm">
+                <input type="hidden" name="id" />
+                <div class="form-row">
+                  <label>
+                    Judul Produk
+                    <input name="title" required placeholder="Nama produk" />
+                  </label>
+                  <label>
+                    Kategori Produk
+                    <input name="category" required placeholder="Dress, Blouse, Outer" />
+                  </label>
+                </div>
+                <div class="form-row">
+                  <label>
+                    Harga
+                    <input name="price" required type="number" min="0" step="1000" />
+                  </label>
+                  <label>
+                    Diskon %
+                    <input name="discount" type="number" min="0" max="90" step="1" value="0" />
+                  </label>
+                  <label>
+                    Stok
+                    <input name="stock" type="number" min="0" step="1" value="20" />
+                  </label>
+                </div>
+                <div class="variant-admin-box" id="variantEditor">
+                  <div class="variant-admin-head">
+                    <div>
+                      <strong>Varian Produk</strong>
+                      <small>Tambahkan varian jika setiap pilihan produk punya harga berbeda.</small>
+                    </div>
+                    <button class="secondary-button" type="button" id="variantAdd">+ Tambah Varian</button>
+                  </div>
+                  <div class="variant-row-list" id="variantRowList"></div>
+                  <small class="form-note">Contoh: Hitam - Size M Rp99.000, Putih - Size L Rp109.000. Jika kosong, harga utama tetap dipakai.</small>
+                </div>
+                <div class="form-row">
+                  <label>
+                    Bahan
+                    <input name="material" placeholder="Contoh: Satin premium" />
+                  </label>
+                  <label>
+                    Warna
+                    <input name="color" placeholder="Contoh: Dusty rose" />
+                  </label>
+                  <label>
+                    Berat
+                    <input name="weight" placeholder="Contoh: 450 gram" />
+                  </label>
+                </div>
+                <label>
+                  Deskripsi
+                  <textarea name="description" required placeholder="Deskripsi produk"></textarea>
+                </label>
+                <label>
+                  Upload Foto Produk
+                  <input name="photos" type="file" accept="image/*" multiple />
+                  <small class="form-note">Foto pertama otomatis menjadi background promo Home. Judul, deskripsi, harga, dan diskon produk otomatis dipakai sebagai teks promo.</small>
+                </label>
+                <div class="form-actions">
+                  <button class="primary-button" type="submit" id="productSubmit">Tambah Produk</button>
+                  <button class="secondary-button" type="reset">Reset Form</button>
+                </div>
+              </form>
+
+              <div class="admin-list" id="adminProductList"></div>
+            </section>
+
+            <section class="admin-section" data-admin-section="discount">
+              <div class="admin-toolbar">
+                <h3>Discount Produk</h3>
+              </div>
+              <div class="admin-list" id="adminDiscountList"></div>
+            </section>
+
+            <section class="admin-section" data-admin-section="banner">
+              <div class="admin-toolbar">
+                <h3>Banner Promosi</h3>
+              </div>
+              <form class="product-form" id="promoForm">
+                <label>
+                  Text Kecil Banner
+                  <input name="eyebrow" required />
+                </label>
+                <label>
+                  Judul Banner
+                  <input name="title" required />
+                </label>
+                <label>
+                  Deskripsi Banner
+                  <textarea name="description" required></textarea>
+                </label>
+                <div class="form-row">
+                  <label>
+                    Text Promo
+                    <input name="badge" required />
+                  </label>
+                  <label>
+                    Upload Gambar Banner
+                    <input name="mainImage" type="file" accept="image/*" />
+                  </label>
+                </div>
+                <button class="primary-button" type="submit">Simpan Banner</button>
+              </form>
+            </section>
+
+
+            <section class="admin-section" data-admin-section="store">
+              <div class="admin-toolbar">
+                <h3>Pengaturan Toko</h3>
+              </div>
+              <form class="product-form store-settings-form" id="storeSettingsForm">
+                <div class="form-row">
+                  <label>
+                    Nama Toko
+                    <input name="storeName" id="storeNameInput" required placeholder="Online Shop" />
+                  </label>
+                  <label>
+                    Nomor Telepon Toko
+                    <input name="storePhone" id="storePhoneInput" type="tel" placeholder="081234567890" />
+                  </label>
+                </div>
+
+                <div class="checkout-address-card store-address-card">
+                  <div class="address-card-head">
+                    <div>
+                      <strong>Alamat Toko</strong>
+                      <span>Alamat ini dipakai sebagai sumber kota pada teks Dikirim dari di halaman produk.</span>
+                    </div>
+                    <button class="address-edit-button" id="storeAddressOpen" type="button">+ Alamat Baru</button>
+                  </div>
+                  <input type="hidden" name="storeStreet" id="storeStreetInput" />
+                  <div class="address-preview store-address-preview empty" id="storeAddressPreview">Alamat toko belum diisi. Klik Alamat Baru untuk mengisi alamat toko.</div>
+                </div>
+
+                <div class="form-actions">
+                  <button class="primary-button" type="submit">Simpan Pengaturan Toko</button>
+                </div>
+              </form>
+            </section>
+
+            <section class="admin-section" data-admin-section="shipping">
+              <div class="admin-toolbar">
+                <h3>Harga Ongkir</h3>
+              </div>
+              <form class="product-form" id="shippingForm">
+                <input type="hidden" name="index" />
+                <div class="form-row">
+                  <label>
+                    Nama Ekspedisi
+                    <input name="name" required placeholder="Contoh: JNE Reguler" />
+                  </label>
+                  <label>
+                    Harga Ongkir
+                    <input name="price" required type="number" min="0" step="1000" placeholder="18000" />
+                  </label>
+                </div>
+                <button class="primary-button" type="submit">Simpan Ongkir</button>
+              </form>
+              <div class="admin-list" id="shippingList"></div>
+            </section>
+
+            <section class="admin-section" data-admin-section="payments">
+              <div class="admin-toolbar">
+                <h3>Metode Pembayaran dan Rekening</h3>
+              </div>
+              <form class="product-form" id="paymentMethodForm">
+                <input type="hidden" name="index" />
+                <div class="form-row">
+                  <label>
+                    Metode Pembayaran
+                    <input name="name" required placeholder="Transfer Bank BCA" />
+                  </label>
+                  <label>
+                    Jenis Nomor
+                    <input name="type" required placeholder="Nomor Rekening / QRIS" />
+                  </label>
+                </div>
+                <div class="form-row">
+                  <label>
+                    Nomor Rekening / QRIS / E-Wallet
+                    <input name="account" required placeholder="1234567890" />
+                  </label>
+                  <label>
+                    Atas Nama
+                    <input name="holder" required placeholder="Online Shop" />
+                  </label>
+                </div>
+                <label>
+                  Catatan
+                  <input name="note" placeholder="Contoh: Scan QRIS melalui aplikasi bank" />
+                </label>
+                <button class="primary-button" type="submit">Simpan Pembayaran</button>
+              </form>
+              <div class="admin-list" id="paymentMethodList"></div>
+            </section>
+
+            <section class="admin-section" data-admin-section="orders">
+              <div class="orders-box">
+                <div class="admin-toolbar">
+                  <h3>Notif Pembeli</h3>
+                  <button class="secondary-button" id="clearOrders" type="button">Bersihkan</button>
+                </div>
+                <div class="order-filters" aria-label="Filter pesanan">
+                  <label>Tanggal<input type="date" id="orderFilterDate" /></label>
+                  <label>Bulan<select id="orderFilterMonth"><option value="">Semua bulan</option></select></label>
+                  <label>Tahun<select id="orderFilterYear"><option value="">Semua tahun</option></select></label>
+                </div>
+                <div id="orderList" class="order-list"></div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+
+
+    <div class="address-modal-backdrop" id="storeAddressModal" hidden>
+      <div class="address-modal" role="dialog" aria-modal="true" aria-labelledby="storeAddressModalTitle">
+        <button class="address-close" id="storeAddressClose" type="button" aria-label="Tutup alamat toko">&times;</button>
+        <h2 id="storeAddressModalTitle">Alamat Toko</h2>
+
+        <div class="address-search-field store-address-search-field">
+          <input id="storeAddressSearch" type="text" placeholder="Provinsi, Kota/Kabupaten, Kecamatan, Kode Pos" readonly />
+          <span class="address-search-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="6.5"></circle>
+              <path d="m16 16 4 4"></path>
+            </svg>
+          </span>
+          <span class="address-caret" aria-hidden="true">⌄</span>
+        </div>
+
+        <div class="address-picker-box store-address-picker-box">
+          <div class="address-tabs" role="tablist" aria-label="Pilih alamat toko">
+            <button class="active" type="button" data-store-address-tab="province">Provinsi</button>
+            <button type="button" data-store-address-tab="city">Kota / Kabupaten</button>
+            <button type="button" data-store-address-tab="district">Kecamatan</button>
+            <button type="button" data-store-address-tab="postal">Kode Pos</button>
+          </div>
+          <div class="address-options" id="storeAddressOptions"></div>
+        </div>
+
+        <label class="address-detail-label">
+          Tulis Alamat Toko
+          <textarea id="storeModalStreet" rows="3" placeholder="Nama jalan, nomor toko, RT/RW, patokan, atau detail lainnya"></textarea>
+        </label>
+
+        <div class="address-modal-actions">
+          <button class="address-ok" id="storeAddressOk" type="button">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="store-data.js"></script>
+    <script src="region-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
