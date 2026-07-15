@@ -15,9 +15,9 @@
         <span><b>Online Shop</b><small>Seller Center</small></span>
       </a>
       <h1>Masuk ke Seller Center</h1>
-      <p>Gunakan akun admin untuk mengakses pengelolaan produk.</p>
-      <label>Username<input name="username" value="admin" autocomplete="username" required /></label>
-      <label>Password<input name="password" value="admin123" type="password" autocomplete="current-password" required /></label>
+      <p>Gunakan akun seller untuk mengakses pengelolaan toko.</p>
+      <label>Username<input name="username" value="seller" autocomplete="username" required /></label>
+      <label>Password<input name="password" value="seller123" type="password" autocomplete="current-password" required /></label>
       <button class="primary-btn" type="submit">Masuk</button>
       <div class="login-error" id="loginError" hidden>Username atau password salah.</div>
       <a class="back-shop" href="../index.html">← Kembali ke halaman toko</a>
@@ -75,6 +75,14 @@
           <svg viewBox="0 0 24 24"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>
           <span>Laporan</span>
         </button>
+        <button class="nav-item" type="button" data-page="shipping">
+          <svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7zM6 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM18 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
+          <span>Harga Ongkir</span>
+        </button>
+        <button class="nav-item" type="button" data-page="payments">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg>
+          <span>Pembayaran</span>
+        </button>
         <button class="nav-item" type="button" data-page="settings">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1z"/></svg>
           <span>Pengaturan Toko</span>
@@ -101,11 +109,11 @@
           </button>
           <div class="profile-menu">
             <button class="profile-button" id="profileButton" type="button">
-              <span class="avatar">A</span><span><b>Admin Toko</b><small>Seller</small></span>
+              <span class="avatar">S</span><span><b>Seller Toko</b><small>Seller Center</small></span>
               <svg viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></svg>
             </button>
             <div class="profile-dropdown" id="profileDropdown" hidden>
-              <button type="button" data-page="settings">Pengaturan akun</button>
+              <button type="button" data-page="settings">Pengaturan Toko</button>
               <button type="button" id="logoutButton">Keluar</button>
             </div>
           </div>
@@ -206,21 +214,43 @@
           <div class="page-heading"><div><h1 id="productFormTitle">Tambah Produk Baru</h1><p>Lengkapi informasi produk sebelum ditampilkan di toko.</p></div></div>
           <form class="content-card product-form" id="productForm">
             <input type="hidden" name="id" />
-            <div class="form-section"><h2>Informasi Dasar</h2><div class="form-grid">
-              <label class="wide">Nama Produk<input name="title" maxlength="100" placeholder="Contoh: Luna Satin Midi Dress" required /></label>
-              <label>Kategori<input name="category" placeholder="Fashion" required /></label>
-              <label>Status<select name="active"><option value="true">Aktif</option><option value="false">Nonaktif</option></select></label>
-              <label class="wide">Deskripsi<textarea name="description" rows="4" placeholder="Jelaskan keunggulan dan detail produk"></textarea></label>
-            </div></div>
-            <div class="form-section"><h2>Harga dan Stok</h2><div class="form-grid three">
-              <label>Harga (Rp)<input name="price" type="number" min="0" step="1000" required /></label>
-              <label>Diskon (%)<input name="discount" type="number" min="0" max="90" value="0" /></label>
-              <label>Stok<input name="stock" type="number" min="0" value="1" required /></label>
-            </div></div>
-            <div class="form-section"><h2>Foto Produk</h2><div class="form-grid">
-              <label class="wide">URL atau path gambar<input name="image" placeholder="assets/photos/produk.jpg atau https://..." /></label>
-              <div class="image-preview" id="imagePreview"><span>Pratinjau gambar</span></div>
-            </div></div>
+
+            <div class="form-section product-section-photo">
+              <h2>Foto Produk</h2>
+              <div class="form-grid">
+                <label class="wide">URL atau path gambar<input name="image" placeholder="assets/photos/produk.jpg atau https://..." /></label>
+                <div class="image-preview" id="imagePreview"><span>Pratinjau gambar</span></div>
+              </div>
+            </div>
+
+            <div class="form-section product-section-basic">
+              <h2>Informasi Dasar</h2>
+              <div class="form-grid">
+                <label class="wide">Nama Produk<input name="title" maxlength="100" placeholder="Contoh: Luna Satin Midi Dress" required /></label>
+                <label>Kategori<input name="category" placeholder="Fashion" required /></label>
+                <label class="wide">Deskripsi<textarea name="description" rows="4" placeholder="Jelaskan keunggulan dan detail produk"></textarea></label>
+              </div>
+            </div>
+
+            <div class="form-section product-section-variants">
+              <div class="variant-editor no-margin">
+                <div class="variant-editor-head">
+                  <div><h3>Varian Produk</h3><p>Tambahkan varian dengan harga berbeda. Jika varian kosong, produk memakai harga utama.</p></div>
+                  <button class="secondary-btn" type="button" id="addVariantRow">+ Tambah Varian</button>
+                </div>
+                <div class="variant-rows" id="variantRows"></div>
+              </div>
+            </div>
+
+            <div class="form-section product-section-price-stock">
+              <h2>Harga dan Stok</h2>
+              <div class="form-grid three">
+                <label>Harga Utama (Rp)<input name="price" type="number" min="0" step="1000" required /></label>
+                <label>Diskon (%)<input name="discount" type="number" min="0" max="90" value="0" /></label>
+                <label>Stok<input name="stock" type="number" min="0" value="1" required /></label>
+              </div>
+            </div>
+
             <div class="form-actions"><button class="secondary-btn" type="button" data-page="products">Batal</button><button class="primary-btn" type="submit">Simpan Produk</button></div>
           </form>
         </section>
@@ -244,12 +274,103 @@
           <section class="content-card chart-card"><div class="card-title-row"><div><h2>Tren Penjualan</h2><span>Simulasi tujuh hari terakhir</span></div></div><div class="bar-chart" id="barChart"></div></section>
         </section>
 
+        <section class="page" data-page-panel="shipping">
+          <div class="page-heading"><div><h1>Harga Ongkir</h1><p>Atur pilihan kurir dan biaya pengiriman yang tampil saat pembeli checkout.</p></div></div>
+          <section class="content-card module-card">
+            <form class="module-form" id="shippingForm">
+              <input type="hidden" name="index" />
+              <label>Nama Layanan<input name="name" placeholder="Contoh: JNE Reguler" required /></label>
+              <label>Harga Ongkir (Rp)<input name="price" type="number" min="0" step="1000" placeholder="18000" required /></label>
+              <label>Estimasi<input name="estimate" placeholder="Contoh: 2 sampai 4 hari" /></label>
+              <div class="module-actions"><button class="secondary-btn" type="reset">Reset</button><button class="primary-btn" type="submit">Simpan Ongkir</button></div>
+            </form>
+            <div class="module-list" id="shippingList"></div>
+          </section>
+        </section>
+
+        <section class="page" data-page-panel="payments">
+          <div class="page-heading"><div><h1>Pembayaran</h1><p>Atur metode pembayaran dan rekening tujuan untuk pembeli.</p></div></div>
+          <section class="content-card module-card">
+            <form class="module-form payment-form" id="paymentMethodForm">
+              <input type="hidden" name="index" />
+              <label>Metode Pembayaran<input name="name" placeholder="Contoh: Bank BCA" required /></label>
+              <label>Jenis<select name="type"><option>Transfer Bank</option><option>E-Wallet</option><option>QRIS</option><option>COD</option></select></label>
+              <label>Nomor Rekening / ID<input name="account" placeholder="Contoh: 1234567890" required /></label>
+              <label>Atas Nama<input name="holder" placeholder="Online Shop" required /></label>
+              <label class="wide">Catatan<input name="note" placeholder="Contoh: Upload bukti transfer setelah pembayaran" /></label>
+              <div class="module-actions wide"><button class="secondary-btn" type="reset">Reset</button><button class="primary-btn" type="submit">Simpan Pembayaran</button></div>
+            </form>
+            <div class="module-list" id="paymentMethodList"></div>
+          </section>
+        </section>
+
         <section class="page" data-page-panel="settings">
-          <div class="page-heading"><div><h1>Pengaturan Toko</h1><p>Atur identitas toko dan tampilan Seller Center.</p></div></div>
-          <form class="content-card settings-form" id="settingsForm">
+          <div class="page-heading"><div><h1>Pengaturan Toko</h1><p>Atur profil toko dan alamat pengiriman yang dipakai pada halaman produk.</p></div></div>
+          <form class="content-card settings-form store-settings-form" id="settingsForm">
             <label>Nama Toko<input name="storeName" value="Online Shop" /></label>
+            <label>No. Telepon Toko<input name="storePhone" inputmode="tel" placeholder="Contoh: 081234567890" /></label>
             <label>Email Toko<input name="storeEmail" type="email" value="seller@namadomain.com" /></label>
-            <label class="wide">Alamat Toko<textarea name="storeAddress" rows="3">Indonesia</textarea></label>
+            <input type="hidden" name="storeStreet" />
+            <div class="store-address-box wide">
+              <div class="store-address-head"><div><strong>Alamat Toko</strong><span>Gunakan format alamat seperti alamat pembeli.</span></div><button class="secondary-btn" id="storeAddressOpen" type="button">+ Alamat Toko</button></div>
+              <div class="address-preview empty" id="storeAddressPreview">Alamat toko belum diisi.</div>
+            </div>
+
+            <div class="seller-home-setting wide">
+              <div class="setting-section-head">
+                <div>
+                  <h2>Pengaturan Tampilan Toko</h2>
+                  <p>Atur tampilan promosi utama, layanan, dan kategori yang tampil pada halaman toko.</p>
+                </div>
+                <a class="secondary-btn preview-link" href="../index.html" target="_blank" rel="noopener">Pratinjau Toko</a>
+              </div>
+
+              <div class="seller-setting-block">
+                <h3>Banner Promo</h3>
+                <div class="settings-subgrid">
+                  <label>Text Kecil Promo<input name="promoEyebrow" placeholder="🔥 PROMO TERBATAS" /></label>
+                  <label>Judul Promo<input name="promoTitle" placeholder="Headphone Wireless Premium" /></label>
+                  <label class="wide">Deskripsi Promo<textarea name="promoDescription" rows="3" placeholder="Deskripsi singkat promo toko"></textarea></label>
+                  <label>Text Harga / Diskon<input name="promoBadge" placeholder="Rp199.000 • Diskon 33%" /></label>
+                  <label>Upload Image<input name="promoUploadImage" type="file" accept="image/*" /></label>
+                  <label>Link Produk<select name="promoProductLink" data-product-select><option value="">Pilih produk</option></select></label>
+                  <input type="hidden" name="promoMainImage" />
+                  <div class="banner-preview wide" id="bannerPromoPreview">Banner promo belum diupload.</div>
+                </div>
+              </div>
+
+              <div class="seller-setting-block">
+                <h3>Baris Layanan</h3>
+                <div class="settings-subgrid four">
+                  <label>Layanan 1<input name="shortcut1" placeholder="🛡️ Garansi 100% Original" /></label>
+                  <label>Layanan 2<input name="shortcut2" placeholder="🚚 Gratis Ongkir" /></label>
+                  <label>Layanan 3<input name="shortcut3" placeholder="↩️ 14 Hari Pengembalian" /></label>
+                  <label>Layanan 4<input name="shortcut4" placeholder="🎧 Layanan 24/7" /></label>
+                </div>
+              </div>
+
+              <div class="seller-setting-block">
+                <h3>Kategori Populer</h3>
+                <div class="settings-subgrid">
+                  <label class="wide">Judul Kategori<input name="categoryTitle" placeholder="Kategori Populer" /></label>
+                </div>
+              </div>
+
+              <div class="seller-setting-block">
+                <h3>Flash Sale</h3>
+                <div class="settings-subgrid">
+                  <label class="wide">Judul Flash Sale<input name="flashTitle" placeholder="🔥 Flash Sale" /></label>
+                  <label>Tanggal Dari<input name="flashStartDate" type="date" /></label>
+                  <label>Tanggal Sampai<input name="flashEndDate" type="date" /></label>
+                  <label>Flash Sale 1<select name="flashProduct1" data-product-select><option value="">Pilih produk</option></select></label>
+                  <label>Harga Flash Sale 1<input name="flashPrice1" type="number" min="0" step="100" placeholder="Contoh: 99000" /></label>
+                  <label>Flash Sale 2<select name="flashProduct2" data-product-select><option value="">Pilih produk</option></select></label>
+                  <label>Harga Flash Sale 2<input name="flashPrice2" type="number" min="0" step="100" placeholder="Contoh: 149000" /></label>
+                  <label>Flash Sale 3<select name="flashProduct3" data-product-select><option value="">Pilih produk</option></select></label>
+                  <label>Harga Flash Sale 3<input name="flashPrice3" type="number" min="0" step="100" placeholder="Contoh: 199000" /></label>
+                </div>
+              </div>
+            </div>
             <div class="theme-setting wide"><span>Thema Website</span><div id="themeDots">
               <button type="button" data-theme-choice="red" title="Red #EE4D2D"></button>
               <button type="button" data-theme-choice="orange" title="Orange #F68D3C"></button>
@@ -258,15 +379,53 @@
               <button type="button" data-theme-choice="green" title="Green #4F9F45"></button>
               <button type="button" data-theme-choice="blue-grey" title="Blue-grey #6C7480"></button>
             </div></div>
-            <div class="form-actions wide"><button class="primary-btn" type="submit">Simpan Pengaturan</button></div>
+            <div class="form-actions wide"><button class="primary-btn" type="submit">Simpan Pengaturan Toko</button></div>
           </form>
         </section>
       </main>
     </div>
   </div>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="address-modal-backdrop" id="storeAddressModal" hidden>
+    <div class="address-modal" role="dialog" aria-modal="true" aria-labelledby="storeAddressModalTitle">
+      <button class="address-close" id="storeAddressClose" type="button" aria-label="Tutup alamat toko">&times;</button>
+      <h2 id="storeAddressModalTitle">Alamat Toko</h2>
+      <div class="address-search-field store-address-search-field">
+        <input id="storeAddressSearch" type="text" placeholder="Provinsi, Kota/Kabupaten, Kecamatan, Kode Pos" readonly />
+        <span class="address-search-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg></span>
+        <span class="address-caret" aria-hidden="true">⌄</span>
+      </div>
+      <div class="address-picker-box store-address-picker-box">
+        <div class="address-tabs" role="tablist" aria-label="Pilih alamat toko">
+          <button class="active" type="button" data-store-address-tab="province">Provinsi</button>
+          <button type="button" data-store-address-tab="city">Kota / Kabupaten</button>
+          <button type="button" data-store-address-tab="district">Kecamatan</button>
+          <button type="button" data-store-address-tab="postal">Kode Pos</button>
+        </div>
+        <div class="address-options" id="storeAddressOptions"></div>
+      </div>
+      <label class="address-detail-label">Tulis Alamat Toko<textarea id="storeModalStreet" rows="3" placeholder="Nama jalan, nomor toko, RT/RW, patokan, atau detail lainnya"></textarea></label>
+      <div class="address-modal-actions"><button class="address-ok" id="storeAddressOk" type="button">OK</button></div>
+    </div>
+  </div>
+
+
+  <div class="address-detail-backdrop" id="addressDetailPopup" hidden>
+    <div class="address-detail-popup" role="dialog" aria-modal="true" aria-labelledby="addressDetailTitle">
+      <button class="address-detail-close" id="addressDetailClose" type="button" aria-label="Tutup detail alamat">&times;</button>
+      <h2 id="addressDetailTitle">Detail Alamat Toko</h2>
+      <div class="address-detail-content" id="addressDetailContent"></div>
+      <div class="address-detail-actions">
+        <button class="secondary-btn" id="addressDetailEdit" type="button">Edit</button>
+        <button class="danger-btn" id="addressDetailDelete" type="button">Hapus</button>
+      </div>
+    </div>
+  </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="../store-data.js"></script>
+  <script src="../region-data.js"></script>
   <script src="seller.js"></script>
 </body>
 </html>
